@@ -1,0 +1,5 @@
+README
+
+Usage:
+
+bash fasta_split.sh /path/to/input.fasta /path/to/output_directory
