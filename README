@@ -1,5 +1,8 @@
-README
+READ ME
 
-Usage:
+Does what it says on the tin.
 
-bash fasta_split.sh /path/to/input.fasta /path/to/output_directory
+
+Usage
+
+  bash fasta_split.sh /path/to/input.fasta /path/to/output_directory
