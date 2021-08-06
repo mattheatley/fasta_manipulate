@@ -1,7 +1,12 @@
 READ ME
 
-Does what it says on the tin.
-
-USAGE
+Split fastas by sequence
 
   bash fasta_split.sh /path/to/input.fasta /path/to/output_directory
+
+
+Merge fasta sequences by size
+
+  python merge_contigs.py -fasta /path/to/fasta_directory
+  
+  
