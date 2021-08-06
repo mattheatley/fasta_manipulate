@@ -16,10 +16,10 @@ parser = argparse.ArgumentParser(description='Merge contigs', prog=script_name, 
 inputs = parser.add_argument_group(description='user inputs:') # user inputs
 inputs.add_argument('-fasta', metavar='</path/to/directory>', type=str, required=True, help='specify fasta path')
 inputs.add_argument('-contigs', metavar='<number>', type=int, default=500, help='specify final contig number')
-inputs.add_argument('-delimiter', metavar='<symbol>', type=str, default='N', help='specify delimiter symbol')
-inputs.add_argument('-repeat', metavar='<number>', type=int, default=500, help='specify delimiter number')
+inputs.add_argument('-delimiter', metavar='<character>', type=str, default='N', help='specify delimiter symbol')
+inputs.add_argument('-length', metavar='<number>', type=int, default=500, help='specify delimiter number')
 
-fasta_dir, total_merged_contigs, delimiter_symbol, delimiter_repeat = vars(parser.parse_args()).values() # define user inputs
+fasta_dir, total_merged_contigs, delimiter_character, delimiter_length = vars(parser.parse_args()).values() # define user inputs
 
 fasta_dir = f'/{fasta_dir.strip("/")}' # ensure correct path format
 assert(os.path.exists(fasta_dir)), f'Problem finding the reference directory "{fasta_dir}".'# check path exists
@@ -48,7 +48,7 @@ merged_small_contig_file, sorted_fasta_file, rebuilt_fasta_file = output_files #
 large_contig_subdir, small_contig_subdir = size_subdirs = [ f'{split_dir}/{label}' for label in ['large','small'] ] # specify contig size subdirectory paths
 
 merge_cmd = ( # specify command to merge smallest contigs
-f'''awk -v delimiter=`printf \'{delimiter_symbol}%.0s\' {{1..{delimiter_repeat}}}` \\
+f'''awk -v delimiter=`printf \'{delimiter_character}%.0s\' {{1..{delimiter_length}}}` \\
 \'BEGIN {{ print \">{merged_contig_name}\" }} \\
 FNR>1 {{ printf \"%s%s\", seq, $0 ; seq=delimiter }} \\
 END {{ print \"\" }} \' \\
