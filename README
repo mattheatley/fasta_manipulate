@@ -1,12 +1,24 @@
 READ ME
 
-Split fastas by sequence
+SPLIT FASTA
+
+Split fastas by sequence.
 
   bash fasta_split.sh /path/to/input.fasta /path/to/output_directory
 
 
-Merge fasta sequences by size
+
+MERGE CONTIGS
+
+Merge smallest fasta sequences into a specified number of contigs with merged contigs delimited.
 
   python merge_contigs.py -fasta /path/to/fasta_directory
-  
-  
+
+
+ADDITIONAL SETTINGS (MERGE CONTIGS ONLY)
+
+  Flag                    Default             Description
+
+  -contigs <number>       500                 specify merged contig number
+  -delimiter <character>  N                   specify delimiter character
+  -length <number>        500                 specify delimiter length
