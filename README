@@ -10,7 +10,7 @@ Split fastas by sequence.
 
 MERGE CONTIGS
 
-Merge smallest fasta sequences into a specified number of contigs with merged contigs delimited.
+Merge smallest fasta sequences into a specified number of contigs with merged contigs seperated by a delimiter.
 
   python merge_contigs.py -fasta /path/to/fasta_directory
 
